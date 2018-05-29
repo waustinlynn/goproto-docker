@@ -1,10 +1,8 @@
 # iron/go:dev is the alpine image with the go tools added
 FROM iron/go:dev
-WORKDIR /app
-# Set an env var that matches your github repo name, replace treeder/dockergo here with your repo name
-ENV SRC_DIR=/src/main
-# Add the source code:
-ADD . $SRC_DIR
-# Build it:
-RUN cd $SRC_DIR; go build -o myapp; cp myapp /app/
-ENTRYPOINT ["./myapp"]
+RUN mkdir /app 
+ADD . /app/ 
+WORKDIR /app 
+RUN go get github.com/gorilla/mux
+RUN go build ./src/main/main.go 
+CMD ["/app/main"]
