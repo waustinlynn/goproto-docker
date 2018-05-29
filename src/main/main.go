@@ -17,5 +17,5 @@ func main(){
 }
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("Hello world")
+	json.NewEncoder(w).Encode("Hello there world")
 }
