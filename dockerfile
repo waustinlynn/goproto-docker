@@ -5,4 +5,5 @@ ADD . /app/
 WORKDIR /app 
 RUN go get github.com/gorilla/mux
 RUN go build ./src/main/main.go 
+EXPOSE 8000 8000
 CMD ["/app/main"]
